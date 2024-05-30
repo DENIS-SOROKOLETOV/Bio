@@ -40,6 +40,7 @@ def read_input():
     initial_conditions = np.array(list(map(float, input().split())))
 
     return t_0, T, h_0, N_x, eps, foo, initial_conditions
+    
 def heun_step(rhs_func, t, y, h, counter):
     k1 = rhs_func(t, y, counter)
     k2 = rhs_func(t + h, y + h * k1, counter)
