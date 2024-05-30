@@ -3,7 +3,7 @@ import re
 import statistics
 
 
-def list_files(directory: str) -> list:
+def list_files(directory):
 
     file_list = []
     for root, _, files in os.walk(directory):
@@ -13,7 +13,7 @@ def list_files(directory: str) -> list:
     return file_list
 
 
-def only_correct_suffix(file_list: list, suff=".txt") -> list:
+def only_correct_suffix(file_list, suff=".txt"):
 
     correct_paths = []
     for path in file_list:
@@ -22,7 +22,7 @@ def only_correct_suffix(file_list: list, suff=".txt") -> list:
     return correct_paths
 
 
-def records_filter(file_list: list, max_records=50) -> list:
+def records_filter(file_list, max_records=50):
 
     selected_files = []
     pattern = re.compile(r'^\d+\s+')
@@ -38,7 +38,7 @@ def records_filter(file_list: list, max_records=50) -> list:
     return selected_files
 
 
-def valid_researches(file_list: list) -> list:
+def valid_researches(file_list):
 
     researches = []
     for file in file_list:
@@ -61,7 +61,7 @@ def valid_researches(file_list: list) -> list:
     return researches
 
 
-def max_tenacity(researches_list: list) -> tuple:
+def max_tenacity(researches_list):
 
     employees = {}
     for res in researches_list:
@@ -72,7 +72,7 @@ def max_tenacity(researches_list: list) -> tuple:
     return (best, employees[best])
 
 
-def hottest_work_hour(researches_list: list) -> dict:
+def hottest_work_hour(researches_list):
 
     machines_whs = {}
     for res in researches_list:
